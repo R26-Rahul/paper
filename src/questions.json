@@ -1,14 +1,14 @@
 {
-  "quizTitle": "React MCQ Quiz",
+  "quizTitle": "हिंदी (301) नवीन पाठ्यक्रम",
   "questions": [
     {
       "id": 1,
-      "question": "What is React?",
+      "question": "'भरत का भ्रातृप्रेम' में भरत सबसे अधिक दोषी मानते - ",
       "options": [
-        "A JavaScript library for building user interfaces",
-        "A programming language",
-        "A database management system",
-        "An operating system"
+        " स्वयं को",
+        " कैकेयी को",
+        " स्वयं के भाग्य को",
+        "दशरथ को"
       ],
       "correctAnswer": 0,
       "timeLimit": 30,
@@ -16,103 +16,103 @@
     },
     {
       "id": 2,
-      "question": "Which hook is used to manage state in functional components?",
+      "question": "भरत का भ्रातृप्रेम में भरत के नेत्रों का सौंदर्य बताने के लिए किसका उपमान प्रयुक्त किया गया है?",
       "options": [
-        "useEffect",
-        "useState",
-        "useContext",
-        "useReducer"
+        "कमल",
+        "जल",
+        "नेह",
+        "मुक्ता"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "timeLimit": 25,
       "difficulty": "easy"
     },
     {
       "id": 3,
-      "question": "What does JSX stand for?",
+      "question": " भरत का भ्रातृप्रेम' में किसके वचन-चातुर्य का परिचय मिलता है-",
       "options": [
-        "JavaScript XML",
-        "Java Syntax Extension",
-        "JavaScript Extension",
-        "Java XML Syntax"
+        "भरत",
+        "राम",
+        "वशिष्ठ",
+        "कैकेयी"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": 3,
       "timeLimit": 20,
       "difficulty": "easy"
     },
     {
       "id": 4,
-      "question": "Which method is used to render React elements to the DOM?",
+      "question": "किस विकल्प में रूपक अलंकार है-",
       "options": [
-        "ReactDOM.render()",
-        "React.render()",
-        "DOM.render()",
-        "Component.render()"
+        "खेलत खुनिस न कबहूँ देखी।",
+        "सुनि मुनिवचन राम रूख पाई।",
+        "पुलक सरीर सभाँ भए ठाढ़े।",
+        "मोर अभाग उदधि अवगाहू"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": 2,
       "timeLimit": 25,
       "difficulty": "easy"
     },
     {
       "id": 5,
-      "question": "What is the purpose of useEffect hook?",
+      "question": "सूरदास के 'पद' की किस पंक्ति में उत्प्रेक्षा अलंकार है-",
       "options": [
-        "To manage state",
-        "To perform side effects",
-        "To create context",
-        "To handle events"
+        "लत लटकनि मनु मत्त मधुप गन",
+        "घुटरुनि चलत रेनु तन मंडित",
+        "चारु कपोल लोल लोचन",
+        "कठुला कंठ वज्र केहरि नख"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "timeLimit": 30,
       "difficulty": "medium"
     },
     {
       "id": 6,
-      "question": "How do you pass data to a child component?",
+      "question": "मीराँ के पद की विशेषता नहीं है-",
       "options": [
-        "Using state",
-        "Using props",
-        "Using context",
-        "Using refs"
+        "मुहावरों का प्रयोग",
+        "प्रेम को छिपाना",
+        "दृढ़ता एवं साहस",
+        "माधुर्य-भाव"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 2,
       "timeLimit": 20,
       "difficulty": "easy"
     },
     {
       "id": 7,
-      "question": "What is Virtual DOM in React?",
+      "question": "'परशुराम के उपदेश' पाठ की किस पंक्ति में लाक्षणिकता है-",
       "options": [
-        "A real DOM representation",
-        "A lightweight copy of real DOM",
-        "A database for React",
-        "A browser extension"
+        "चट्टानों की छाती से दूध निकालो।",
+        "वह देश कभी स्वाधीन नहीं रहता है।",
+        "स्वाधीन जगत में वही जाति रहती है।",
+        "बाहरी वस्तु नहीं, भीतरी गुण है।"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "timeLimit": 30,
       "difficulty": "medium"
     },
     {
       "id": 8,
-      "question": "Which method is called when a component is first mounted?",
+      "question": "भेड़िए' कविता की भाषागत विशेषता नहीं है-",
       "options": [
-        "componentWillMount",
-        "componentDidMount",
-        "componentMounted",
-        "componentCreated"
+        "प्रतीकात्मकता",
+        "तत्समबहुलता",
+        "स्वाभाविकता",
+        "सरलता"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 3,
       "timeLimit": 25,
       "difficulty": "medium"
     },
     {
       "id": 9,
-      "question": "What is the correct way to update state in class components?",
+      "question": "'सुभद्रा कुमारी चौहान' पाठ है-",
       "options": [
-        "this.state.count = 5",
-        "setState({ count: 5 })",
-        "this.setState({ count: 5 })",
-        "state.update({ count: 5 })"
+        "संस्मरण",
+        "शब्दचित्र",
+        "रेखाचित्र",
+        "संस्मरणात्मक रेखाचित्र"
       ],
       "correctAnswer": 2,
       "timeLimit": 20,
@@ -120,12 +120,12 @@
     },
     {
       "id": 10,
-      "question": "What are React Fragments used for?",
+      "question": "'सुभद्रा कुमारी चौहान' पाठ के आरंभ में बात की गई है-",
       "options": [
-        "To improve performance",
-        "To group elements without adding extra nodes",
-        "To create reusable components",
-        "To handle errors"
+        "स्मृति की विशेषता की",
+        "सुभद्राकुमारी चौहान की",
+        "स्वाधीनता-आंदोलन की",
+        "स्कूल के दिनों की"
       ],
       "correctAnswer": 1,
       "timeLimit": 25,
@@ -133,66 +133,66 @@
     },
     {
       "id": 11,
-      "question": "What is the purpose of useMemo hook?",
+      "question": "सुभद्रा कुमारी चौहान की हँसी की विशेषता नहीं बताई गई-",
       "options": [
-        "To memorize entire components",
-        "To optimize performance by memoizing expensive calculations",
-        "To remember user preferences",
-        "To cache API responses"
+        "साधारण",
+        "सरल विश्वासयुक्त",
+        "संक्रामक",
+        "निश्चित तृप्तियुक्त"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 3,
       "timeLimit": 30,
       "difficulty": "hard"
     },
     {
       "id": 12,
-      "question": "Which of the following is true about React keys?",
+      "question": "सुभद्रा कुमारी चौहान के व्यक्तित्व की विशेषता है-",
       "options": [
-        "They are required for all components",
-        "They help React identify which items have changed",
-        "They improve component styling",
-        "They are used for routing"
+        "हरिजनों के पक्ष में संघर्ष करना",
+        "गृहस्थ धर्म को पूरी तरह त्याग देना",
+        "परंपरा का पूरी तरह पालन करना",
+        "मृत्यु की चर्चा का विरोध करना"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "timeLimit": 25,
       "difficulty": "medium"
     },
     {
       "id": 13,
-      "question": "What is the difference between controlled and uncontrolled components?",
+      "question": "डायरी लिखते समय आप इसकी विशेषता नहीं मानेंगे-",
       "options": [
-        "Controlled components use state, uncontrolled use refs",
-        "Controlled components are faster",
-        "Uncontrolled components are more secure",
-        "There is no difference"
+        "भावाभिव्यक्ति",
+        "औपचारिकता",
+        "वैयक्तिकता",
+        "तात्कालिक प्रतिक्रिया"
       ],
-      "correctAnswer": 0,
+      "correctAnswer": 1,
       "timeLimit": 35,
       "difficulty": "hard"
     },
     {
       "id": 14,
-      "question": "What does the useCallback hook do?",
+      "question": "'अंडमान डायरी 'पाठ में लेखक जब सेल्यूलर जेल गया, तो उसके सामने किसकी वास्तविकता सामने आगई- ",
       "options": [
-        "Callback for event listeners",
-        "Memoizes callback functions",
-        "Handles API callbacks",
-        "Manages callback queues"
+        "अंग्रेज़ों के सभ्य होने की",
+        "देशप्रेमी होने की",
+        "आज़ादी के सपनों की",
+        "भूख और बीमारी की"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 3,
       "timeLimit": 30,
       "difficulty": "hard"
     },
     {
       "id": 15,
-      "question": "What is React Context used for?",
+      "question": " 'अंडमान डायरी' में 'काला पानी' का अर्थ है",
       "options": [
-        "To replace Redux completely",
-        "To avoid prop drilling",
-        "To manage component styles",
-        "To handle form validation"
+        "वह स्थान जहाँ से लौटने की उम्मीद नहीं",
+        "पोर्ट ब्लेयर में बहाए गए आँसू",
+        "मूँगिया पहाड़ी द्वीप",
+        "हरा-नीला समुद्री पानी"
       ],
-      "correctAnswer": 1,
+      "correctAnswer": 0,
       "timeLimit": 25,
       "difficulty": "medium"
     }

@@ -189,10 +189,6 @@ const McqApp = () => {
         );
     }
 
-    function oldData() {
-        localStorage.clear()
-    };
-
     return (
         <div className="mcq-container">
             <div className="mcq-card">
@@ -209,7 +205,6 @@ const McqApp = () => {
                 {showNameInput && !quizStarted ? (
                     <div className="name-input-section">
                         <div className="welcome-message">
-                            <h2>Welcome to the Quiz!</h2>
                             <p>Enter your name to begin your journey</p>
                         </div>
                         <form onSubmit={handleNameSubmit} className="name-form">
@@ -228,7 +223,7 @@ const McqApp = () => {
                                 <div className="input-underline"></div>
                             </div>
                             <button type="submit" className="start-btn">
-                                Start Quiz 🚀
+                                Start Exam 🚀
                             </button>
                         </form>
 
@@ -239,13 +234,6 @@ const McqApp = () => {
                                     <span>Last attempt: </span>
                                     <strong>{attempts[0].userName}</strong> - {attempts[0].score}/{attempts[0].totalQuestions} ({attempts[0].percentage}%)
                                 </div>
-
-                                <button
-                                    className="view-results-btn"
-                                    onClick={() => oldData()}
-                                >
-                                    Deleted 
-                                </button>
                                 <button
                                     className="view-results-btn"
                                     onClick={() => setShowResults(true)}
@@ -286,18 +274,18 @@ const McqApp = () => {
                             </div>
                         </div>
                         <button className="start-btn" onClick={startQuiz}>
-                            Start Quiz Now
+                            Start Now
                         </button>
                     </div>
                 ) : showResults ? (
                     <div className="results-section">
                         <div className="results-header">
-                            <h2>Quiz Results History</h2>
+                            <h2>Exam Results History</h2>
                             <button
                                 className="back-btn"
                                 onClick={() => setShowResults(false)}
                             >
-                                ← Back to Quiz
+                                ← Back to Exam
                             </button>
                         </div>
 
@@ -305,7 +293,7 @@ const McqApp = () => {
                             <div className="no-results">
                                 <div className="no-results-icon">📊</div>
                                 <h3>No attempts yet</h3>
-                                <p>Complete a quiz to see your results here!</p>
+                                <p>Complete a exam to see your results here!</p>
                             </div>
                         ) : (
                             <>
