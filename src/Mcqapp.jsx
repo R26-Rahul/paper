@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './mcq.css';
+import './McqApp.css';
 import quizData from './questions.json';
 
 const McqApp = () => {
@@ -12,6 +12,18 @@ const McqApp = () => {
   const [timerActive, setTimerActive] = useState(true);
   const [quizStarted, setQuizStarted] = useState(false);
   const [questions, setQuestions] = useState([]);
+  const [userName, setUserName] = useState('');
+  const [showNameInput, setShowNameInput] = useState(true);
+  const [attempts, setAttempts] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+
+  // Load attempts from localStorage on component mount
+  useEffect(() => {
+    const savedAttempts = localStorage.getItem('quizAttempts');
+    if (savedAttempts) {
+      setAttempts(JSON.parse(savedAttempts));
+    }
+  }, []);
 
   // Initialize quiz
   useEffect(() => {
@@ -66,8 +78,40 @@ const McqApp = () => {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
+      saveAttempt();
       setShowScore(true);
     }
+  };
+
+  const saveAttempt = () => {
+    const newAttempt = {
+      id: Date.now(),
+      userName: userName || 'Anonymous',
+      score: score,
+      totalQuestions: questions.length,
+      percentage: Math.round((score / questions.length) * 100),
+      date: new Date().toLocaleString(),
+      difficultyBreakdown: calculateDifficultyBreakdown()
+    };
+
+    const updatedAttempts = [newAttempt, ...attempts].slice(0, 10); // Keep last 10 attempts
+    setAttempts(updatedAttempts);
+    localStorage.setItem('quizAttempts', JSON.stringify(updatedAttempts));
+  };
+
+  const calculateDifficultyBreakdown = () => {
+    const breakdown = {
+      easy: { correct: 0, total: 0 },
+      medium: { correct: 0, total: 0 },
+      hard: { correct: 0, total: 0 }
+    };
+
+    questions.forEach((question, index) => {
+      breakdown[question.difficulty].total++;
+      // This is simplified - you'd need to track which specific questions were answered correctly
+    });
+
+    return breakdown;
   };
 
   const handleRestartQuiz = () => {
@@ -77,12 +121,23 @@ const McqApp = () => {
     setSelectedAnswer(null);
     setAnswered(false);
     setTimerActive(true);
-    setQuizStarted(true);
+    setShowNameInput(true);
+    setUserName('');
     setTimeLeft(questions[0]?.timeLimit || 30);
   };
 
   const startQuiz = () => {
-    setQuizStarted(true);
+    if (userName.trim()) {
+      setQuizStarted(true);
+      setShowNameInput(false);
+    } else {
+      alert('Please enter your name to start the quiz!');
+    }
+  };
+
+  const handleNameSubmit = (e) => {
+    e.preventDefault();
+    startQuiz();
   };
 
   const getOptionClass = (optionIndex) => {
@@ -119,6 +174,11 @@ const McqApp = () => {
     }
   };
 
+  const clearHistory = () => {
+    setAttempts([]);
+    localStorage.removeItem('quizAttempts');
+  };
+
   if (questions.length === 0) {
     return (
       <div className="mcq-container">
@@ -134,7 +194,7 @@ const McqApp = () => {
       <div className="mcq-card">
         <header className="mcq-header">
           <h1>{quizData.quizTitle}</h1>
-          {!quizStarted && (
+          {!quizStarted && !showNameInput && (
             <div className="quiz-info">
               <p>Total Questions: {questions.length}</p>
               <p>Time Limit: Varies per question</p>
@@ -142,8 +202,56 @@ const McqApp = () => {
           )}
         </header>
 
-        {!quizStarted ? (
+        {showNameInput && !quizStarted ? (
+          <div className="name-input-section">
+            <div className="welcome-message">
+              <h2>Welcome to the Quiz!</h2>
+              <p>Enter your name to begin your journey</p>
+            </div>
+            <form onSubmit={handleNameSubmit} className="name-form">
+              <div className="input-group">
+                if (userName) {
+                    localStorage.clear()
+                    
+                }
+                <input
+                  type="text"
+                  placeholder="Enter your name..."
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  className="name-input"
+                  maxLength={50}
+                  autoFocus
+                />
+                <div className="input-underline"></div>
+              </div>
+              <button type="submit" className="start-btn">
+                Start Quiz 🚀
+              </button>
+            </form>
+            
+            {attempts.length > 0 && (
+              <div className="quick-stats">
+                <h3>Recent Performance</h3>
+                <div className="recent-attempt">
+                  <span>Last attempt: </span>
+                  <strong>{attempts[0].userName}</strong> - {attempts[0].score}/{attempts[0].totalQuestions} ({attempts[0].percentage}%)
+                </div>
+                <button 
+                  className="view-results-btn"
+                  onClick={() => setShowResults(true)}
+                >
+                  View All Results
+                </button>
+              </div>
+            )}
+          </div>
+        ) : !quizStarted ? (
           <div className="start-section">
+            <div className="user-welcome">
+              <h2>Hello, {userName}! 👋</h2>
+              <p>Get ready to test your knowledge</p>
+            </div>
             <div className="quiz-stats">
               <div className="stat">
                 <span className="stat-number">{questions.length}</span>
@@ -169,12 +277,91 @@ const McqApp = () => {
               </div>
             </div>
             <button className="start-btn" onClick={startQuiz}>
-              Start Quiz
+              Start Quiz Now
             </button>
+          </div>
+        ) : showResults ? (
+          <div className="results-section">
+            <div className="results-header">
+              <h2>Quiz Results History</h2>
+              <button 
+                className="back-btn"
+                onClick={() => setShowResults(false)}
+              >
+                ← Back to Quiz
+              </button>
+            </div>
+            
+            {attempts.length === 0 ? (
+              <div className="no-results">
+                <div className="no-results-icon">📊</div>
+                <h3>No attempts yet</h3>
+                <p>Complete a quiz to see your results here!</p>
+              </div>
+            ) : (
+              <>
+                <div className="results-stats">
+                  <div className="result-stat">
+                    <span className="result-stat-number">{attempts.length}</span>
+                    <span className="result-stat-label">Total Attempts</span>
+                  </div>
+                  <div className="result-stat">
+                    <span className="result-stat-number">
+                      {Math.max(...attempts.map(a => a.score))}
+                    </span>
+                    <span className="result-stat-label">Best Score</span>
+                  </div>
+                  <div className="result-stat">
+                    <span className="result-stat-number">
+                      {Math.round(attempts.reduce((acc, curr) => acc + curr.percentage, 0) / attempts.length)}%
+                    </span>
+                    <span className="result-stat-label">Average</span>
+                  </div>
+                </div>
+                
+                <div className="attempts-list">
+                  <h3>Recent Attempts</h3>
+                  {attempts.map((attempt, index) => (
+                    <div key={attempt.id} className="attempt-item">
+                      <div className="attempt-header">
+                        <div className="attempt-user">{attempt.userName}</div>
+                        <div className="attempt-date">{attempt.date}</div>
+                      </div>
+                      <div className="attempt-score">
+                        <div className="score-circle-small">
+                          <span className="score-text">{attempt.score}/{attempt.totalQuestions}</span>
+                          <span className="score-percentage">{attempt.percentage}%</span>
+                        </div>
+                        <div className="attempt-performance">
+                          <div 
+                            className="performance-bar"
+                            style={{ '--score-percent': `${attempt.percentage}%` }}
+                          >
+                            <div className="performance-fill"></div>
+                          </div>
+                          <div className="performance-message">
+                            {attempt.percentage === 100 ? "🎉 Perfect!" :
+                             attempt.percentage >= 80 ? "👍 Excellent!" :
+                             attempt.percentage >= 60 ? "😊 Good!" :
+                             attempt.percentage >= 40 ? "📚 Keep Learning!" :
+                             "💪 Practice More!"}
+                          </div>
+                        </div>
+                      </div>
+                      {index === 0 && <div className="latest-badge">Latest</div>}
+                    </div>
+                  ))}
+                </div>
+                
+                <button className="clear-history-btn" onClick={clearHistory}>
+                  Clear History
+                </button>
+              </>
+            )}
           </div>
         ) : showScore ? (
           <div className="score-section">
-            <h2>Quiz Completed!</h2>
+            <h2>Quiz Completed, {userName}! 🎉</h2>
             <div className="score-circle">
               <span className="score-text">
                 {score} / {questions.length}
@@ -185,33 +372,47 @@ const McqApp = () => {
             </div>
             <div className="score-details">
               <div className="score-breakdown">
-                <h3>Performance Breakdown</h3>
+                <h3>Performance Summary</h3>
                 <div className="breakdown-item">
-                  <span>Easy Questions:</span>
-                  <span>
-                    {score} correct out of {questions.length}
-                  </span>
+                  <span>Correct Answers:</span>
+                  <span>{score} out of {questions.length}</span>
+                </div>
+                <div className="breakdown-item">
+                  <span>Success Rate:</span>
+                  <span>{Math.round((score / questions.length) * 100)}%</span>
+                </div>
+                <div className="breakdown-item">
+                  <span>Date Completed:</span>
+                  <span>{new Date().toLocaleString()}</span>
                 </div>
               </div>
             </div>
             <p className="score-message">
-              {score === questions.length ? "🎉 Perfect! You're a React expert!" :
-               score >= questions.length * 0.8 ? "👍 Excellent! You know React very well!" :
+              {score === questions.length ? "🎉 Perfect! You're a quiz master!" :
+               score >= questions.length * 0.8 ? "👍 Excellent! Outstanding performance!" :
                score >= questions.length * 0.6 ? "😊 Good job! Solid understanding!" :
                score >= questions.length * 0.4 ? "📚 Not bad! Keep learning!" :
                "💪 Keep practicing! You'll improve!"}
             </p>
-            <button className="restart-btn" onClick={handleRestartQuiz}>
-              Restart Quiz
-            </button>
+            <div className="score-actions">
+              <button className="restart-btn" onClick={handleRestartQuiz}>
+                Try Again
+              </button>
+              <button 
+                className="view-results-btn"
+                onClick={() => setShowResults(true)}
+              >
+                View Results History
+              </button>
+            </div>
           </div>
         ) : (
           <div className="question-section">
-            {/* Header with progress and difficulty */}
             <div className="question-header">
               <div className="progress">
                 Question {currentQuestion + 1} of {questions.length}
               </div>
+              <div className="user-info">Playing as: {userName}</div>
               <div 
                 className="difficulty-badge"
                 style={{ backgroundColor: getDifficultyColor(questions[currentQuestion].difficulty) }}
@@ -220,7 +421,6 @@ const McqApp = () => {
               </div>
             </div>
 
-            {/* Timer */}
             <div className="timer-container">
               <div className="timer-text">Time Remaining:</div>
               <div 
