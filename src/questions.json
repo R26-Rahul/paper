@@ -1,0 +1,200 @@
+{
+  "quizTitle": "React MCQ Quiz",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is React?",
+      "options": [
+        "A JavaScript library for building user interfaces",
+        "A programming language",
+        "A database management system",
+        "An operating system"
+      ],
+      "correctAnswer": 0,
+      "timeLimit": 30,
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "Which hook is used to manage state in functional components?",
+      "options": [
+        "useEffect",
+        "useState",
+        "useContext",
+        "useReducer"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 25,
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "What does JSX stand for?",
+      "options": [
+        "JavaScript XML",
+        "Java Syntax Extension",
+        "JavaScript Extension",
+        "Java XML Syntax"
+      ],
+      "correctAnswer": 0,
+      "timeLimit": 20,
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "Which method is used to render React elements to the DOM?",
+      "options": [
+        "ReactDOM.render()",
+        "React.render()",
+        "DOM.render()",
+        "Component.render()"
+      ],
+      "correctAnswer": 0,
+      "timeLimit": 25,
+      "difficulty": "easy"
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of useEffect hook?",
+      "options": [
+        "To manage state",
+        "To perform side effects",
+        "To create context",
+        "To handle events"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 30,
+      "difficulty": "medium"
+    },
+    {
+      "id": 6,
+      "question": "How do you pass data to a child component?",
+      "options": [
+        "Using state",
+        "Using props",
+        "Using context",
+        "Using refs"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 20,
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "What is Virtual DOM in React?",
+      "options": [
+        "A real DOM representation",
+        "A lightweight copy of real DOM",
+        "A database for React",
+        "A browser extension"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 30,
+      "difficulty": "medium"
+    },
+    {
+      "id": 8,
+      "question": "Which method is called when a component is first mounted?",
+      "options": [
+        "componentWillMount",
+        "componentDidMount",
+        "componentMounted",
+        "componentCreated"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 25,
+      "difficulty": "medium"
+    },
+    {
+      "id": 9,
+      "question": "What is the correct way to update state in class components?",
+      "options": [
+        "this.state.count = 5",
+        "setState({ count: 5 })",
+        "this.setState({ count: 5 })",
+        "state.update({ count: 5 })"
+      ],
+      "correctAnswer": 2,
+      "timeLimit": 20,
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "question": "What are React Fragments used for?",
+      "options": [
+        "To improve performance",
+        "To group elements without adding extra nodes",
+        "To create reusable components",
+        "To handle errors"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 25,
+      "difficulty": "medium"
+    },
+    {
+      "id": 11,
+      "question": "What is the purpose of useMemo hook?",
+      "options": [
+        "To memorize entire components",
+        "To optimize performance by memoizing expensive calculations",
+        "To remember user preferences",
+        "To cache API responses"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 30,
+      "difficulty": "hard"
+    },
+    {
+      "id": 12,
+      "question": "Which of the following is true about React keys?",
+      "options": [
+        "They are required for all components",
+        "They help React identify which items have changed",
+        "They improve component styling",
+        "They are used for routing"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 25,
+      "difficulty": "medium"
+    },
+    {
+      "id": 13,
+      "question": "What is the difference between controlled and uncontrolled components?",
+      "options": [
+        "Controlled components use state, uncontrolled use refs",
+        "Controlled components are faster",
+        "Uncontrolled components are more secure",
+        "There is no difference"
+      ],
+      "correctAnswer": 0,
+      "timeLimit": 35,
+      "difficulty": "hard"
+    },
+    {
+      "id": 14,
+      "question": "What does the useCallback hook do?",
+      "options": [
+        "Callback for event listeners",
+        "Memoizes callback functions",
+        "Handles API callbacks",
+        "Manages callback queues"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 30,
+      "difficulty": "hard"
+    },
+    {
+      "id": 15,
+      "question": "What is React Context used for?",
+      "options": [
+        "To replace Redux completely",
+        "To avoid prop drilling",
+        "To manage component styles",
+        "To handle form validation"
+      ],
+      "correctAnswer": 1,
+      "timeLimit": 25,
+      "difficulty": "medium"
+    }
+  ]
+}
