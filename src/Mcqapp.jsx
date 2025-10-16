@@ -455,7 +455,7 @@ const McqApp = () => {
                             <div className="feedback">
                                 {selectedAnswer === questions[currentQuestion].correctAnswer ? (
                                     <div className="feedback-correct">
-                                        ✅ Correct! Well done!
+                                        ✅ यह सही है
                                     </div>
                                 ) : selectedAnswer === -1 ? (
                                     <div className="feedback-incorrect">
@@ -464,7 +464,7 @@ const McqApp = () => {
                                     </div>
                                 ) : (
                                     <div className="feedback-incorrect">
-                                        ❌ Incorrect. The correct answer is:{" "}
+                                        ❌ यह गलत है. यह सही विकल्प है:{" "}
                                         <strong>{questions[currentQuestion].options[questions[currentQuestion].correctAnswer]}</strong>
                                     </div>
                                 )}

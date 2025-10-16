@@ -592,7 +592,7 @@ body {
 
 .feedback-correct {
   background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.1));
-  color: #4caf50;
+  color: white;
   padding: 25px;
   border-radius: 20px;
   font-size: 1.3rem;
@@ -605,7 +605,7 @@ body {
 
 .feedback-incorrect {
   background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(244, 67, 54, 0.1));
-  color: #f44336;
+  color: white;
   padding: 25px;
   border-radius: 20px;
   font-size: 1.3rem;
@@ -824,10 +824,13 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .mcq-container{
+    padding: 0;
+  }
   .mcq-card {
-    padding: 30px 20px;
-    margin: 10px;
-    border-radius: 24px;
+    padding: 10px 5px;
+    margin:0;
+    border-radius: 20px;
   }
   
   .mcq-header h1 {
