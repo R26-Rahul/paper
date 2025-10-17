@@ -30,7 +30,7 @@ const McqApp = () => {
   if (quizData.questions && quizData.questions.length > 0) {
     // Shuffle and pick 10 random questions
     const shuffled = [...quizData.questions].sort(() => Math.random() - 0.5);
-    const selected = shuffled.slice(0, 15);
+    const selected = shuffled.slice(0, 10);
 
     setQuestions(selected);
     setTimeLeft(selected[0]?.timeLimit || 30);
