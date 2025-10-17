@@ -27,11 +27,16 @@ const McqApp = () => {
 
     // Initialize quiz
     useEffect(() => {
-        if (quizData.questions) {
-            setQuestions(quizData.questions);
-            setTimeLeft(quizData.questions[0]?.timeLimit || 30);
-        }
-    }, []);
+  if (quizData.questions && quizData.questions.length > 0) {
+    // Shuffle and pick 10 random questions
+    const shuffled = [...quizData.questions].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, 15);
+
+    setQuestions(selected);
+    setTimeLeft(selected[0]?.timeLimit || 30);
+  }
+}, []);
+
 
     // Timer effect
     useEffect(() => {
